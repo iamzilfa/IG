@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<div style=" background-image: linear-gradient(to right,#fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);height: 150vh;margin-top: -2.9cm;">
+    <div class="container" style="padding-top:4%">
+        <div class="media">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <img class="rounded-circle" src="{{my_profiless.profile_photo.url}}" width="190px" height="165px">
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <div class="media-body">
+                            <div>{{my_profiless.user}}
+                            </div>
+                            <p>{% autoescape on %}
+                                {{my_profiless.bio| safe}}
+                                {% endautoescape %}</p>
+                            <p><a href="{%url 'follow' my_profiless.id %}">Follow</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <div class="row" style="margin-top: 3%; margin-left: 3%;margin-right:3%">
+        {% for user in profiless_images %}
+        <div class="col-md-4" style="margin-right:3%">
+            <img src="{{user.image.url}}" height="300" height="200" class="img-responsive" alt="Image">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
