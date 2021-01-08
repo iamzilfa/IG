@@ -1,6 +1,6 @@
 # Instagram
 
-An Instagram clone app where users can view,post and like pictures,search and follow other users.
+An Instagram clone website application where users can view,post and like pictures,search and follow other users.
 
 ## Author(s) information
 [iamzilfa](https://github.com/iamzilfa)
@@ -28,6 +28,8 @@ An Instagram clone app where users can view,post and like pictures,search and fo
 * Heroku
 * Markdow
 * Django 1.11
+* Bootstrap4
+
 
 
 ## Support and contact details
