@@ -65,10 +65,11 @@ class ImageTestClass(TestCase):
     def setUp(self):
         self.image = Image(image ='BOOK.jpeg', image_name='oops', image_caption='just an image',date='11.6.2020')
     
-    
+
     def tearDown(self):
         Image.objects.all().delete()
         Profile.objects.all().delete()
+
 
         # Testing Instance
         def test_instance(self):
