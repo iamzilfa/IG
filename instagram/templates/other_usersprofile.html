@@ -10,16 +10,16 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <img class="rounded-circle" src="{{my_profiless.profile_photo.url}}" width="190px" height="165px">
+                        <img class="rounded-circle" src="{{my_profily.profile_photo.url}}" width="190px" height="165px">
                     </div>
                     <div class="col-md-6 mt-3">
                         <div class="media-body">
-                            <div>{{my_profiless.user}}
+                            <div style="font-weight: bold;">{{my_profily.user}}
                             </div>
                             <p>{% autoescape on %}
-                                {{my_profiless.bio| safe}}
+                                {{my_profily.bio| safe}}
                                 {% endautoescape %}</p>
-                            <p><a href="{%url 'follow' my_profiless.id %}">Follow</a></p>
+                            <p><a href="{%url 'follow' my_profily.id %}"  class="btn btn-primary btn-sm">Follow</a></p>
                         </div>
                     </div>
                 </div>
