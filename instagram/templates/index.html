@@ -1,1 +1,67 @@
-<h1> Welcome to the Moringa Tribune</h1>
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+
+
+<div
+    style=" background-image: linear-gradient(to right,#fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);margin-top: -2.9cm;">
+
+    <div class="container" style="padding-top: 3px;">
+
+        {% for images in all_images %}
+        <div>
+            <div class="card" style="width: 30rem; margin-top: 5%; margin-left: 20%; ">
+
+                {% if images.profile%}
+                <span><img
+                        style="margin-top:13px; margin-bottom: 13px; margin-left: 10px;margin-right: 5px;border-radius: 50%"
+                        src="{{images.profile.profile_photo.url}}" width="50px" height="45px"
+                        class="img-responsive profile_image">
+
+                    <strong><span style="font-family: 'Redressed', cursive;font-size:20px">{{images.user | lower}}</span> <span style="color: rgb(5, 111, 199);"><i class="fas fa-check-circle"
+                                style="font-size: 12px;"></i>&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"
+                                style="font-size: 3px;color: black;"></i> <a style="font-size: 13px;"
+                                href="{% url 'othersprofile' images.user.id %}">Follow</a><i
+                                class="fas fa-ellipsis-v fa-lg"
+                                style="margin-left: 270px;color: rgba(0, 0, 0, 0.589);"></i></span></a></strong></span>
+                {% endif %}
+
+                <img src="{{images.image.url}}" height="350" class="img-responsive" alt="Image" data-toggle="modal"
+                    data-target="#{{images.id}}">
+
+                <div class="card-body">
+                    <span><a href="{% url 'like' images.id%}">
+                            <strong style="color:black"><i class="far fa-heart fa-lg"></i></strong>
+                        </a></span>
+                    &nbsp;&nbsp;
+                    <span><a style="color: black;" href="{%url 'comment' images.id%}"><i
+                                class="far fa-comment fa-lg"></i></a></span>
+                    &nbsp;&nbsp;
+                    <span><i class="fas fa-share-alt fa-lg"></i></span>
+                    <span style="margin-left: 320px;"><i class="far fa-bookmark fa-lg"></i></span>
+                    <br>
+                    <strong style="font-size: 15px;">{{images.likes}} likes</strong>
+                    <br>
+                    <span style="font-weight:bold;font-family: 'Redressed', cursive;font-size: 18px;">{{images.user | lower}}</span> <span
+                        style="font-family: 'Times New Roman', Times, serif;font-size: 15px;">{{images.image_caption}}</span>
+
+                    <p
+                        style="font-weight: bold;font-size: 15px;color: rgba(0, 0, 0, 0.459);font-family: 'Times New Roman', Times, serif;margin-top: 3px;">
+                        View all Comments...</p>
+                    {% for comments in images.comments_set.all %}
+                    <span>
+                        <ul>
+                            <p style="font-size: 14px;font-family: 'Times New Roman', Times, serif;margin-top: -0.3cm;">
+                                __{{comments.comment}} </p>
+                        </ul>
+                    </span>
+                    {% endfor %}
+                    <h5> <small style="font-weight: bold; font-size: 12px;color: rgba(0, 0, 0, 0.459);">{{images.date|date:"F d,Y"}}</small> </h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
