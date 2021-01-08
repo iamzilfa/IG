@@ -34,8 +34,7 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user
-        
-        
+
 class Image(models.Model):
     image_name = models.CharField(max_length=100, null=True)
     image_caption = models.CharField(max_length=100, blank=True)
