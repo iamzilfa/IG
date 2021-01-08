@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{% block content %}
+
+<div style=" background-image: linear-gradient(to right,#fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);height: 150vh;margin-top: -2.9cm;">
+    <div class="container" style="padding-top:4%">
+
+        <div class="row">
+            {% if users%}
+            <h2>Found {{ users|length }} of searched term {{message}}</h2>
+            {% else %}
+            <h2 style="text-align: center;font-family: 'Times New Roman', Times, serif;"> Found 0 users</h2>
+            {% endif %}
+
+        </div>
+
+        <div class="row">
+
+            {% if users %}
+            {% for user in users %}
+            <div class="col-sm-6 col-md-3">
+                <h2 style="color:rgb(41, 39, 39)"><strong>user's profile</strong>{{user.user.username}}</h2>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
