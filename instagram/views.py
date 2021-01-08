@@ -106,7 +106,6 @@ def likes(request,id):
    
    return redirect("/")
 
-
 @login_required(login_url='/accounts/login/')
 def others_profile(request, ima_id):
     current_user = User.objects.filter(id = ima_id).first()
