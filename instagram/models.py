@@ -35,6 +35,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user
         
+        
 class Image(models.Model):
     image_name = models.CharField(max_length=100, null=True)
     image_caption = models.CharField(max_length=100, blank=True)
@@ -66,6 +67,7 @@ class Image(models.Model):
 
         return self.image_caption
 
+
 class Comments(models.Model):
     comment = models.CharField(max_length=100)
     posted_by = models.ForeignKey(Profile,on_delete=models.CASCADE, null = True)
@@ -83,6 +85,7 @@ class Comments(models.Model):
     def __str__(self):
 
         return self.posted_by
+
 
 class Follow(models.Model):
     from_user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
