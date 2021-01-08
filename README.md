@@ -28,7 +28,7 @@ An Instagram clone website application where users can view,post and like pictur
 * Heroku
 * Markdow
 * Django 1.11
-* Bootstrap4
+* Bootstrap 4
 
 
 
