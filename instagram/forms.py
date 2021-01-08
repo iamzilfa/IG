@@ -6,6 +6,7 @@ class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['user', 'date', 'firstname', 'lastname']
+        
 
 class NewImageForm(forms.ModelForm):
     class Meta:
