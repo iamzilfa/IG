@@ -7,12 +7,11 @@ class NewProfileForm(forms.ModelForm):
         model = Profile
         exclude = ['user', 'date', 'firstname', 'lastname']
 
-
 class NewImageForm(forms.ModelForm):
     class Meta:
         model = Image
         exclude = ['image_name', 'profile_pic', 'date', 'user', 'profile', 'likes']
-        
+
 
 class commentForm(forms.ModelForm):
     class Meta:
