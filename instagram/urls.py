@@ -3,7 +3,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
-
 urlpatterns=[
     url('^$',views.index,name = 'index'),
     url(r'^new/upload$', views.upload_image, name='upload'),
