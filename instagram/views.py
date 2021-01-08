@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import NewProfileForm,NewImageForm,commentForm
 from django.contrib.auth.models import User
 
-
-
 # Create your views here.
 
 @login_required(login_url='/accounts/login/')
@@ -112,10 +110,10 @@ def likes(request,id):
 @login_required(login_url='/accounts/login/')
 def others_profile(request, ima_id):
     current_user = User.objects.filter(id = ima_id).first()
-    profiless_images = Image.objects.filter(user = current_user)
-    my_profiless = Profile.objects.filter(user = current_user).first()
+    profily_images = Image.objects.filter(user = current_user)
+    my_profily = Profile.objects.filter(user = current_user).first()
     
-    return render(request, 'other_usersprofile.html', {"profiless_images":profiless_images, "my_profiless":my_profiless})
+    return render(request, 'other_usersprofile.html', {"profily_images":profily_images, "my_profily":my_profily})
 
 @login_required(login_url='/accounts/login/')
 def following(request, profile_id):
