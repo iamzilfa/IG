@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-from pathlib import Path
 from decouple import config
 import os
 import django_heroku
