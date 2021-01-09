@@ -6,11 +6,11 @@
     <div class="container" style="padding-top:4%">
 
         <div class="row">
-            <div class="col-md-3"></div>
+        
             <div class="col-md-6">
                 {% if users%}
 
-                <h5 class='text-center'>Found {{ users|length }} user {{ users | pluralize }}</h2>
+                <h5>Found {{ users|length }} user {{ users | pluralize }}</h2>
                     {% else %}
 
                     <h5 class="text-center"> Found 0 user with username <strong>{{message}}</strong></h5>
@@ -23,20 +23,20 @@
                     <hr>
 
                     {% if users %}
-                    {% for user in users %}
+                    {% for person in users %}
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-3">
-                                <img src="{{user.profile_photo.url}}" alt=""
-                                    class="rounded-circle ml-3 mt-2  mr-3" width="55" height="55">
+                            <div>
+                                <img src="{{person.profile_photo.url}}" alt=""
+                                    class="rounded-circle ml-3 mt-2  mr-3" width="100" height="100">
                             </div>
-                            <div class="col-md-6 mt-2">
-                                <span><strong>{{user.user.username}}</strong></span><br>
+                            <div style="padding-top: 30px; font-size: 20px;">
+                                <span><strong><a href="{% url 'usersprofile' person.user.id %}">{{person.user.username}}</a></strong></span><br>
                             </div>
 
                         </div>
                     </div>
-                    <hr>
+                    
                     {% endfor %}
                     {% endif %}
             </div>

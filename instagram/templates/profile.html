@@ -8,9 +8,9 @@
         <div class="media">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-1"></div>
+        
                     <div class="col-md-3">
-                        <img class="rounded-circle" src="{{my_profile.profile_photo.url}}" width="190px" height="165px">
+                        <img class="rounded-circle" src="{{my_profile.profile_photo.url}}" width="180px" height="165px">
                     </div>
                     <div class="col-md-6 mt-3">
                         <div class="media-body">
@@ -23,6 +23,7 @@
                         <div>
                             <span class="mr-5"><strong>{{profi_images.count}}</strong> Posts</span>
                             <span class="mr-5"> <strong>{{ user.profile.followers.count }}</strong>0 Followers</span>
+                            <span class="mr-5"> <strong>{{ user.profile.followers.count }}</strong>0 Following</span>
                         </div>
                     </div>
                 </div>
@@ -32,10 +33,10 @@
     </div>
 
     <div class="container">
-        <div class="row" style="margin-top: 3%; margin-left: 3%;margin-right:3%">
+        <div class="row">
             {% for user in profi_images %}
-            <div class="col-md-4" style="margin-right:3%;margin-top: 3%;">
-                <img src="{{user.image.url}}" height="200" height="200" class="img-responsive" alt="Image">
+            <div class="col-md-4" style="margin-right:3%;margin-top: 3%; ">
+                <img src="{{user.image.url}}" height="400" width="400" class="img-responsive" alt="Image">
             </div>
             {% endfor %}
         </div>
