@@ -9,10 +9,10 @@
     style=" background-image: linear-gradient(to right,#fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);margin-top: -2.9cm;">
 
     <div class="container" style="padding-top: 3px;">
+        
+            {% for images in all_images %}
 
-        {% for images in all_images %}
-        <div>
-            <div class="card" style="width: 30rem; margin-top: 5%; margin-left: 20%; ">
+            <div class="card" style="width: 30rem; margin-top: 5%; margin-left: 28%; ">
 
                 {% if images.profile%}
                 <span><img
@@ -23,12 +23,12 @@
                     <strong><span style="font-family: 'Redressed', cursive;font-size:20px">{{images.user | lower}}</span> <span style="color: rgb(5, 111, 199);"><i class="fas fa-check-circle"
                                 style="font-size: 12px;"></i>&nbsp;&nbsp;&nbsp;<i class="fas fa-circle"
                                 style="font-size: 3px;color: black;"></i> <a style="font-size: 13px;"
-                                href="{% url 'othersprofile' images.user.id %}">Follow</a><i
+                                href="{% url 'usersprofile' images.user.id %}">Follow</a><i
                                 class="fas fa-ellipsis-v fa-lg"
-                                style="margin-left: 270px;color: rgba(0, 0, 0, 0.589);"></i></span></a></strong></span>
+                                style="margin-left: 220px;color: rgba(0, 0, 0, 0.589);"></i></span></a></strong></span>
                 {% endif %}
 
-                <img src="{{images.image.url}}" height="350" class="img-responsive" alt="Image" data-toggle="modal"
+                <img src="{{images.image.url}}" height="350px" class="img-responsive" alt="Image" data-toggle="modal"
                     data-target="#{{images.id}}">
 
                 <div class="card-body">
@@ -52,16 +52,17 @@
                         View all Comments...</p>
                     {% for comments in images.comments_set.all %}
                     <span>
-                        <ul>
-                            <p style="font-size: 14px;font-family: 'Times New Roman', Times, serif;margin-top: -0.3cm;">
-                                __{{comments.comment}} </p>
-                        </ul>
+                    
+                            <p style="font-size: 15px;font-family: 'Times New Roman', Times, serif;margin-top: -0.3cm;">
+                                <span style="font-weight: bold; font-family: 'Redressed', cursive;font-size: 18px">{{ comments.posted_by.user | lower }}</span>  {{comments.comment}} </p>
+                    
                     </span>
                     {% endfor %}
-                    <h5> <small style="font-weight: bold; font-size: 12px;color: rgba(0, 0, 0, 0.459);">{{images.date|date:"F d,Y"}}</small> </h5>
+                    <h5> <small
+                            style="font-weight: bold; font-size: 12px;color: rgba(0, 0, 0, 0.459);">{{images.date|date:"F d,Y"}}</small> </h5>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
-    {% endblock %}
+{% endblock %}

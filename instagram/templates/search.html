@@ -1,28 +1,46 @@
 {%extends 'base.html'%}
 {% block content %}
 
-<div style=" background-image: linear-gradient(to right,#fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);height: 150vh;margin-top: -2.9cm;">
+<div
+    style=" background-image: linear-gradient(to right,#fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);height: 150vh;margin-top: -2.9cm;">
     <div class="container" style="padding-top:4%">
 
         <div class="row">
-            {% if users%}
-            <h2>Found {{ users|length }} of searched term {{message}}</h2>
-            {% else %}
-            <h2 style="text-align: center;font-family: 'Times New Roman', Times, serif;"> Found 0 users</h2>
-            {% endif %}
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                {% if users%}
 
-        </div>
+                <h5 class='text-center'>Found {{ users|length }} user {{ users | pluralize }}</h2>
+                    {% else %}
 
-        <div class="row">
+                    <h5 class="text-center"> Found 0 user with username <strong>{{message}}</strong></h5>
 
-            {% if users %}
-            {% for user in users %}
-            <div class="col-sm-6 col-md-3">
-                <h2 style="color:rgb(41, 39, 39)"><strong>user's profile</strong>{{user.user.username}}</h2>
+
+                    <a class="d-block mx-auto" href="/">
+                        <button class="btn btn-sm btn-info d-block mx-auto">Back Home</button>
+                    </a>
+                    {% endif %}
+                    <hr>
+
+                    {% if users %}
+                    {% for user in users %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="{{user.profile_photo.url}}" alt=""
+                                    class="rounded-circle ml-3 mt-2  mr-3" width="55" height="55">
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <span><strong>{{user.user.username}}</strong></span><br>
+                            </div>
+
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    {% endif %}
             </div>
-
-            {% endfor %}
-            {% endif %}
+            <div class="col-md-3"></div>
         </div>
     </div>
 </div>

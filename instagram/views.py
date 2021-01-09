@@ -53,9 +53,9 @@ def search_users(request):
       message = f"{search_term}"
 
       return render(request, "search.html",{"message":message,"users": searched_users})
+      
   else:
       message = "You haven't searched for any term"
-
       return render(request, 'search.html',{"message":message})
 
 
@@ -71,7 +71,7 @@ def upload_image(request):
             image.profile = user_images
             image.save()
 
-        return redirect('welcome')
+        return redirect('index')
 
     else:
         form = NewImageForm()
@@ -91,7 +91,7 @@ def add_comment(request, image_id):
             comment.posted_by = profiless
             comment.commented_image = image_item
             comment.save()
-            return redirect('welcome')
+            return redirect('index')
     else:
         form = commentForm()
 
@@ -107,12 +107,12 @@ def likes(request,id):
    return redirect("/")
 
 @login_required(login_url='/accounts/login/')
-def others_profile(request, ima_id):
+def users_profile(request, ima_id):
     current_user = User.objects.filter(id = ima_id).first()
     profily_images = Image.objects.filter(user = current_user)
     my_profily = Profile.objects.filter(user = current_user).first()
     
-    return render(request, 'other_usersprofile.html', {"profily_images":profily_images, "my_profily":my_profily})
+    return render(request, 'users_profile.html', {"profily_images":profily_images, "my_profily":my_profily})
 
 @login_required(login_url='/accounts/login/')
 def following(request, profile_id):
@@ -121,4 +121,6 @@ def following(request, profile_id):
     followers = Follow(from_user = current_user,profile = profile_user)
     followers.save()
 
-    return redirect('othersprofile', profile_id)
+    return redirect('usersprofile', profile_id)
+
+
