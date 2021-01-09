@@ -1,0 +1,1 @@
+web: gunicorn socia_media.wsgi
