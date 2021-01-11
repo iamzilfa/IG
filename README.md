@@ -35,7 +35,7 @@ An Instagram clone website application where users can view,post and like pictur
 ## Support and contact details
 If anyone need support concerning my project or anything related, just reach out to zilcyam@gmail.com
  
-<!-- [Here is the Link](https://zilfastudio.herokuapp.com/ "Studio") -->
+[Here is the Link](https://zilinsta.herokuapp.com/ "Instagram")
 
 ### License
 
